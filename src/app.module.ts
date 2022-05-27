@@ -13,7 +13,7 @@ import { Restaurant } from './restaurant/restaurant.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost/school',
+      url: 'mongodb://localhost/AppSoFar',
       synchronize: true,
       useUnifiedTopology: true,
       entities: [

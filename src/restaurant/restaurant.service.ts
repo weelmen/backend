@@ -10,7 +10,7 @@ export class RestaurantsService {
         @InjectRepository(Restaurant) private restaurantRepository : Repository<Restaurant>
     ){}
 
-    async ( name, Cuisine, Opens,Closes,DaysOpen,Rating,Location,Description ):Promise<Restaurant>{
+    async createRestaurant( name, Cuisine, Opens,Closes,DaysOpen,Rating,Location,Description ):Promise<Restaurant>{
         
         const restaurant = this.restaurantRepository.create({
           id: uuid(),
