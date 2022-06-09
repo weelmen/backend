@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 //import { AppController } from './app.controller';
 //import { AppService } from './app.service';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { RestaurantsModule } from './restaurant/restaurants.module';
+import { RestaurantsModule } from './restaurant/restaurant.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Restaurant } from './restaurant/restaurant.entity';

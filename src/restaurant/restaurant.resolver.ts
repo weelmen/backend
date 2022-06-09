@@ -1,4 +1,5 @@
 import { Resolver,Query, Mutation, Args } from "@nestjs/graphql";
+import { CreateRestaurantInput } from "./restaurant.input";
 import { RestaurantsService } from "./restaurant.service";
 import { RestaurantType } from "./restaurant.type";
 
@@ -6,14 +7,18 @@ import { RestaurantType } from "./restaurant.type";
 export class RestaurantResolver{
 
     constructor(
-        private restaurantService: RestaurantsService,
+      /*  @InjectRepository(Restaurant) */private restaurantService: RestaurantsService,
        
       ) {}
     
 
     @Query(returns => RestaurantType)
-    restaurant() {
-        return{
+    restaurant(
+        @Args('id') id: string,
+    ) {
+
+        return this.restaurantService.getRestaurant(id)
+    /*    return{
        
     id: '156zfdfeth6515' ,
     name: 'Restaurant1' ,
@@ -25,21 +30,18 @@ export class RestaurantResolver{
     Location: 'hammam sousse',    
     Description: 'Bla Bla Bla' ,
 
-        };
+        };*/
     }
+    @Query(returns => [RestaurantType])
+    restaurants() {
+    return this.restaurantService.getRestaurants();
+  }
 
     @Mutation(returns => RestaurantType)
     createRestaurant(
-        @Args('name') name: string , 
-        @Args('Cuisine') Cuisine: string , 
-        @Args('Opens') Opens: string , 
-        @Args('Closes') Closes: string , 
-        @Args('DaysOpen') DaysOpen: string , 
-        @Args('Rating') Rating: string , 
-        @Args('Location') Location: string , 
-        @Args('Description') Description: string , 
-  ) {
-    return this.restaurantService.createRestaurant(name,Cuisine,Opens,Closes,DaysOpen,Rating,Location,Description);
+      @Args('createRestaurantInput') createRestaurantInput:CreateRestaurantInput,
+    ) {
+    return this.restaurantService.createRestaurant(createRestaurantInput);
 
     }
 
