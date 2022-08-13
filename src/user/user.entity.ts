@@ -3,7 +3,7 @@ import { Column, Entity, ObjectIdColumn, PrimaryColumn } from "typeorm";
 
 
 @Entity( )
-export class Restaurant{
+export class User{
 
     @ObjectIdColumn()   
     _id: string ;
@@ -15,27 +15,28 @@ export class Restaurant{
     name: string ;
 
     @Column()
-    Cuisine: string ;
-
-    @Column()
-    Opens: string ;
-
-    @Column()
-    Closes: string ;
-
-    @Column()
-    DaysOpen: string ;
-
-    @Column()
-    Rating : string ;
-
-    @Column()
-    Location: string ;
+    email : string ;
     
     @Column()
-    Description: string ;
+    role: string ;
 
     @Column()
-    imagesrc: string ;
-    
+    birthday: string ;
+
+    @Column()
+    phoneNb: string ;
+
+    @Column()
+    registerDate: string ;
+
+    @Column()
+    lastAccessed: string ;
+
+    @Column()
+    password: string ;
+
+    @Column()
+    currentHashedRefreshToken: string ;
+
+
 }

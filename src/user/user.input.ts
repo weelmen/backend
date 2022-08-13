@@ -2,47 +2,42 @@ import { InputType, Field, ID } from '@nestjs/graphql';
 import { MinLength, IsDateString, IsUUID } from 'class-validator';
 
 @InputType()
-export class CreateRestaurantInput {
-  @MinLength(1)
-  @Field()
-  name: string;
-
-  /*@IsUUID("4", { each: true })
-  @Field(() => [ID], { defaultValue: [] })
-  students: string[];*/
+export class CreateUserInput {
 
 
   @MinLength(1)
   @Field()
-  Cuisine: string;
+  name: string ;
 
   @MinLength(1)
   @Field()
-  Opens: string ;
+  email : string ;
+  
+  @MinLength(1)
+  @Field()
+  role: string ;
 
   @MinLength(1)
   @Field()
-  Closes: string ;
+  birthday: string ;
 
   @MinLength(1)
   @Field()
-  DaysOpen: string ;
+  phoneNb: string ;
 
   @MinLength(1)
   @Field()
-  Rating : string ;
+  registerDate: string ;
 
   @MinLength(1)
   @Field()
-  Location: string ;
+  lastAccessed: string ;
 
   @MinLength(1)
   @Field()
-  Description: string ;
+  password: string ;
 
-  @MinLength(1)
-  @Field()
-  imagesrc: string ;
+
 }
 
 

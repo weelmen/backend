@@ -6,6 +6,12 @@ import { RestaurantsModule } from './restaurant/restaurant.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Restaurant } from './restaurant/restaurant.entity';
+import { Menu } from './menu/menu.entity';
+import { MenusModule } from './menu/menu.module';
+import { User } from './user/user.entity';
+import { UsersModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import { AppController } from './app.controller';
 //import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 
 
@@ -17,7 +23,9 @@ import { Restaurant } from './restaurant/restaurant.entity';
       synchronize: true,
       useUnifiedTopology: true,
       entities: [
-        Restaurant
+        Restaurant,
+        Menu,
+        User
       ]
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -33,9 +41,12 @@ import { Restaurant } from './restaurant/restaurant.entity';
         Restaurant
       ]
     }),*/
-    RestaurantsModule
+    RestaurantsModule,
+    MenusModule,
+    UsersModule,
+   // AuthModule
   ],
- // controllers: [AppController],
+  //controllers: [AppController],
  // providers: [AppService],
 })
 export class AppModule {}

@@ -1,32 +1,20 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
 
 
-@ObjectType('Restaurant')
-export class RestaurantType {
+@ObjectType('Menu')  
+export class MenuType {
 
     @Field(type => ID)
     id: string ;
 
     @Field()
+    restaurant_id: string ;
+
+    @Field()
     name: string ;
 
     @Field()
-    Cuisine: string ;
-
-    @Field()
-    Opens: string ;
-
-    @Field()
-    Closes: string ;
-
-    @Field()
-    DaysOpen: string ;
-
-    @Field()
     Rating : string ;
-
-    @Field()
-    Location: string ;
     
     @Field()
     Description: string ;
